@@ -1,0 +1,7 @@
+﻿################################################################################
+# 此 .gitignore 文件已由 Microsoft(R) Visual Studio 自动创建。
+################################################################################
+
+/IceCreamMaking/IceCreamMaking/bin/Debug
+/IceCreamMaking/IceCreamMaking/obj/Debug
+/IceCreamMaking/.vs/IceCreamMaking
