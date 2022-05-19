@@ -1,0 +1,33 @@
+﻿<Window
+    x:Class="TimePickerControl.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:custom="clr-namespace:TimePickerControl.CustomControl"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:TimePickerControl"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:validationRule="clr-namespace:TimePickerControl.ValidationRule"
+    Title="MainWindow"
+    Width="800"
+    Height="450"
+    d:DataContext="{d:DesignInstance local:MainViewModel}"
+    mc:Ignorable="d">
+    <Grid>
+        <custom:TimePicker
+            Width="150"
+            custom:HintAssist.Hint="Validates"
+            Is24Hours="True"
+            FontSize="10"
+            Padding="1,0,0,2"
+            IsInvalidTextAllowed="True"
+            Style="{StaticResource MaterialDesignFloatingHintTimePicker}">
+            <custom:TimePicker.Text>
+                <Binding Path="ValidatingTime" UpdateSourceTrigger="PropertyChanged">
+                    <Binding.ValidationRules>
+                        <validationRule:SimpleDateValidationRule ValidatesOnTargetUpdated="True" />
+                    </Binding.ValidationRules>
+                </Binding>
+            </custom:TimePicker.Text>
+        </custom:TimePicker>
+    </Grid>
+</Window>
